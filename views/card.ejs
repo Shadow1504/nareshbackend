@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      table
+        {
+        
+            border: none;
+            border-collapse: collapse;
+
+        }
+        tr,th,td
+        {
+           
+            border: 3px solid black;
+            padding: 15px;
+            
+        }
+
+        body {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        
+    <!-- <div>
+       
+        <h1>Enter your name</h1>
+        <input type="text" name="idname" value="">
+        
+        <button class="chk"><a href="/idcard?name=">Check </a> </button>
+    </div> -->
+    <div>
+        <div>
+            <h2>WebDSchool</h2>
+            <img src="" alt="">
+        </div>
+       
+        <table style="width: 100%;">
+            <tr>
+                <th>S.NO</th>
+                <th>Applicant name</th>
+                <th>Batch</th>
+                <th>Track ID</th>
+            </tr>
+            <% base.map((val)=>{%>
+            <tr>
+               <td><%= 1  %></td>
+                    <td>
+                        <%= val.name %>
+                    </td>
+                    <td>
+                        <%= val.batch %>
+                    </td>
+                   
+                  
+                    <td> <a href="/edit?id=<%= val._id %>">
+                        <%= val._id %></a>
+                    </td>
+                    
+                    <td> <a class="del" data-id=<%= val._id %>> delete</a></td>
+
+                    <% }) %>
+            </tr>
+        </table>
+      
+    </div>
+</form>
+    
+<!-- <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+<script>
+    $(".chk").click(function(){
+            let id=$(this).attr("data-name")
+            console.log("find");
+            $.ajax({
+                "url":`http://localhost:10004/base/${name}`,
+                "method":"GET"
+               
+            }).done(function(response)
+            {
+                console.log("find");
+                location.reload();
+            })
+    }
+
+    )
+</script> -->
+</body>
+</html>
